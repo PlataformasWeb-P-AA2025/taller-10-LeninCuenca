@@ -1,0 +1,11 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Panel de Administración Personalizado{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Mi Administración de Ciudad</a></h1>
+{% endblock %}
+
+{% block nav-global %}
+    <p style="color: #007bff; font-weight: bold;">Bienvenido al sistema de ordenamiento territorial</p>
+{% endblock %}

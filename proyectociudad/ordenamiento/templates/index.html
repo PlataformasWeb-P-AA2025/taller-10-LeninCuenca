@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Parroquias y Barrios</title>
+</head>
+<body>
+    <h1>Listado de Parroquias y sus Barrios</h1>
+    <ul>
+        {% for parroquia in parroquias %}
+            <li>
+                <strong>{{ parroquia.nombre }}</strong>
+                <ul>
+                    {% for barrio in parroquia.barrios.all %}
+                        <li>{{ barrio.nombre }}</li>
+                    {% empty %}
+                        <li>No hay barrios registrados.</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% empty %}
+            <li>No hay parroquias registradas.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Listado de Barrios</h2>
+    <ul>
+        {% for barrio in barrios %}
+            <li>{{ barrio.nombre }} ({{ barrio.parroquia.nombre }})</li>
+        {% empty %}
+            <li>No hay barrios registrados.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'crear_parroquia' %}">Crear nueva Parroquia</a><br>
+    <a href="{% url 'crear_barrio' %}">Crear nuevo Barrio</a>
+</body>
+</html>

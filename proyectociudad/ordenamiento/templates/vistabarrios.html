@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Barrios</title>
+</head>
+<body>
+    <h1>Lista de Barrios</h1>
+    <ul>
+        {% for barrio in barrios %}
+            <li>
+                {{ barrio.nombre }} (Parroquia: {{ barrio.parroquia.nombre }})
+            </li>
+        {% empty %}
+            <li>No hay barrios registrados.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
