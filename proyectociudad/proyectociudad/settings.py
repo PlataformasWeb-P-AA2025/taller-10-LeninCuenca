@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +52,68 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'proyectociudad.urls'
+
+JAZZMIN_SETTINGS = {
+    "site_header": "Academico",
+    "site_icon": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+    "welcome_sign": "Ingrese sus credenciales para acceder al sistema",
+    "copyright": "© 2025 Universidad Ejemplo",
+    "search_model": ["auth.User", "ejercio01.Estudiante", "ejercio01.Curso"],
+    "user_avatar": None,
+
+    "topmenu_links": [
+        {"name": "Inicio", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Soporte", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+        {"model": "auth.User"},
+        {"app": "ejercio01"},
+    ],
+
+    "usermenu_links": [
+        {"name": "Soporte", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+    ],
+
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "order_with_respect_to": [
+        "ejercio01", "auth", "ejercio01.Curso", "ejercio01.Estudiante"
+    ],
+
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "ejercio01": "fas fa-university",
+        "ejercio01.curso": "fas fa-book",
+        "ejercio01.estudiante": "fas fa-user-graduate",
+        "ejercio01.instructor": "fas fa-chalkboard-teacher",
+        "ejercio01.departamento": "fas fa-building",
+        "ejercio01.inscripcion": "fas fa-clipboard-list",
+        "ejercio01.tarea": "fas fa-tasks",
+        "ejercio01.entrega": "fas fa-file-upload",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+
+    "related_modal_active": True,
+    "custom_css": "css/jazzmin_custom.css",  # Crea este archivo para personalizar aún más
+    "custom_js": None,
+    "use_google_fonts_cdn": True,
+    "show_ui_builder": True,
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {
+        "auth.user": "collapsible",
+        "auth.group": "vertical_tabs"
+    },
+    "language_chooser": True,
+
+    # Paleta de colores personalizada
+    "theme": "cosmo",  # Prueba otros: "minty", "cyborg", "solar", "superhero", etc.
+    "dark_mode_theme": "darkly",
+}
+
 
 TEMPLATES = [
     {
